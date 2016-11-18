@@ -1,0 +1,56 @@
+// ConsoleApplication2.cpp : 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+/*class Text
+{
+public:
+	Text(int i) { a = i; }//构造函数
+	void print()const
+	{
+		//display();//调用非常函数，错误，const修饰后不能调用非常函数
+		//a+=120;//修改私有成员的值，错误，修饰后不能改变
+		cout << "this->a=" << this->a << endl;
+		cout << "this=" << this << endl;
+	}
+	void display()
+	{
+		a += 300;
+	}
+private:
+	int a;
+};
+void main()
+{
+	Text x(100);//对象x，赋值100
+	x.print();
+	system("pause");
+}
+*/
+class Text
+{
+public:
+	Text(int i) { a = i; }//构造函数
+	void print()volatile
+	{
+		//display();//调用非常函数，错误，volitilej修饰后不能调用非常函数
+		a += 120;//修改私有成员的值
+		cout << "this->a=" << this->a << endl;
+		cout << "this=" << this << endl;
+	}
+	void display()
+	{
+		a += 300;
+	}
+private:
+	int a;
+};
+void main()
+{
+	Text x(100);//对象x，赋值100
+	x.print();
+	system("pause");
+}
